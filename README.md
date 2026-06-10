@@ -11,13 +11,13 @@ Shared linter configs and reusable workflows for all dupmachine repositories.
 
 ## Overrides
 
-| Linter | Rule | Default | Here |
-|--------|------|---------|------|
-| yamllint | `line-length` | enabled (max 80) | disabled |
-| pymarkdown | MD013 line-length | enabled | disabled |
-| pymarkdown | MD026 trailing-punctuation | enabled | disabled — headings like `Setup:` are intentional |
-| pymarkdown | MD034 no-bare-urls | enabled | disabled — bare URLs appear intentionally in agent instruction files |
-| pymarkdown | MD024 no-duplicate-heading | enabled (strict) | `allow_different_nesting: true` |
+| Linter | Rule | Default | Here | Reason |
+|--------|------|---------|------|--------|
+| yamllint | `line-length` | enabled (max 80) | disabled | Long lines are normal in YAML values and comments |
+| pymarkdown | MD013 line-length | enabled | disabled | Long lines are normal in prose and tables |
+| pymarkdown | MD026 trailing-punctuation | enabled | disabled | Headings like `Setup:` are used intentionally in agent instruction files |
+| pymarkdown | MD034 no-bare-urls | enabled | disabled | Bare URLs appear intentionally in agent instruction files |
+| pymarkdown | MD024 no-duplicate-heading | enabled (strict) | `allow_different_nesting: true` | Repeated subheadings like `### Usage example` are valid under distinct parent sections |
 
 ## Usage
 

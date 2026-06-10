@@ -9,3 +9,9 @@
   language: script
   entry: hooks/pymarkdown.sh
   types: [markdown]
+
+- id: ruff
+  name: ruff
+  language: script
+  entry: hooks/ruff.sh
+  types: [python]

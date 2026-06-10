@@ -8,6 +8,7 @@ Shared linter configs and reusable workflows for all dupmachine repositories.
 |--------|-------|--------|
 | [yamllint](https://github.com/adrienverge/yamllint) | `*.yml`, `*.yaml` | `configs/yamllint.yml` |
 | [pymarkdown](https://github.com/jackdewinter/pymarkdown) | `*.md` | `configs/pymarkdown.json` |
+| [ruff](https://github.com/astral-sh/ruff) | `*.py` | `configs/ruff.toml` |
 
 ## Overrides
 
@@ -18,6 +19,7 @@ Shared linter configs and reusable workflows for all dupmachine repositories.
 | pymarkdown | MD026 trailing-punctuation | enabled | disabled | AGENTS.md files use `Setup:`, `Usage:`, `Configuration:` as section headings by convention |
 | pymarkdown | MD034 no-bare-urls | enabled | disabled | AGENTS.md files reference internal URLs (e.g. Semaphore) inline without link syntax |
 | pymarkdown | MD024 no-duplicate-heading | enabled (strict) | `allow_different_nesting: true` | Playbook docs repeat identical subheadings (e.g. `### Usage example`) under each playbook section |
+| ruff | E501 line-length | enabled (max 88) | disabled | Long error messages and inline expressions in Python scripts exceed 88 chars and cannot be meaningfully wrapped |
 
 ## Usage
 
@@ -32,9 +34,10 @@ repos:
     hooks:
       - id: yamllint
       - id: pymarkdown
+      - id: ruff  # optional: only for repos with Python code
 ```
 
-Both linters must be installed on the system (`pip install yamllint pymarkdownlnt`).
+Required system dependencies: `pip install yamllint pymarkdownlnt ruff`.
 
 ### GitHub Actions
 
@@ -51,6 +54,8 @@ jobs:
     uses: dupmachine/linters/.github/workflows/yamllint.yml@main
   pymarkdown:
     uses: dupmachine/linters/.github/workflows/pymarkdown.yml@main
+  ruff:
+    uses: dupmachine/linters/.github/workflows/ruff.yml@main
 ```
 
 ## Adding a new linter

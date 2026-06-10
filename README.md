@@ -17,7 +17,7 @@ Shared linter configs and reusable workflows for all dupmachine repositories.
 | pymarkdown | MD013 line-length | enabled | disabled | Tables and inline code references in README files break when wrapped |
 | pymarkdown | MD026 trailing-punctuation | enabled | disabled | AGENTS.md files use `Setup:`, `Usage:`, `Configuration:` as section headings by convention |
 | pymarkdown | MD034 no-bare-urls | enabled | disabled | AGENTS.md files reference internal URLs (e.g. Semaphore) inline without link syntax |
-| pymarkdown | MD024 no-duplicate-heading | enabled (strict) | `allow_different_nesting: true` | `ansible-playbooks/README.md` repeats `### Usage example` under each playbook section |
+| pymarkdown | MD024 no-duplicate-heading | enabled (strict) | `allow_different_nesting: true` | Playbook docs repeat identical subheadings (e.g. `### Usage example`) under each playbook section |
 
 ## Usage
 

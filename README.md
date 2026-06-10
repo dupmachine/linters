@@ -13,11 +13,11 @@ Shared linter configs and reusable workflows for all dupmachine repositories.
 
 | Linter | Rule | Default | Here | Reason |
 |--------|------|---------|------|--------|
-| yamllint | `line-length` | enabled (max 80) | disabled | Long lines are normal in YAML values and comments |
-| pymarkdown | MD013 line-length | enabled | disabled | Long lines are normal in prose and tables |
-| pymarkdown | MD026 trailing-punctuation | enabled | disabled | Headings like `Setup:` are used intentionally in agent instruction files |
-| pymarkdown | MD034 no-bare-urls | enabled | disabled | Bare URLs appear intentionally in agent instruction files |
-| pymarkdown | MD024 no-duplicate-heading | enabled (strict) | `allow_different_nesting: true` | Repeated subheadings like `### Usage example` are valid under distinct parent sections |
+| yamllint | `line-length` | enabled (max 80) | disabled | Traefik labels in docker-compose files (e.g. `traefik.http.routers.${APP_NAME}.tls.certresolver=...`) routinely exceed 80 chars and cannot be meaningfully wrapped |
+| pymarkdown | MD013 line-length | enabled | disabled | Tables and inline code references in README files break when wrapped |
+| pymarkdown | MD026 trailing-punctuation | enabled | disabled | AGENTS.md files use `Setup:`, `Usage:`, `Configuration:` as section headings by convention |
+| pymarkdown | MD034 no-bare-urls | enabled | disabled | AGENTS.md files reference internal URLs (e.g. Semaphore) inline without link syntax |
+| pymarkdown | MD024 no-duplicate-heading | enabled (strict) | `allow_different_nesting: true` | `ansible-playbooks/README.md` repeats `### Usage example` under each playbook section |
 
 ## Usage
 

@@ -9,22 +9,15 @@ Shared linter configs and reusable workflows for all dupmachine repositories.
 | [yamllint](https://github.com/adrienverge/yamllint) | `*.yml`, `*.yaml` | `configs/yamllint.yml` |
 | [pymarkdown](https://github.com/jackdewinter/pymarkdown) | `*.md` | `configs/pymarkdown.json` |
 
-## Deviations from defaults
+## Overrides
 
-### yamllint
-
-| Rule | Default | Here |
-|------|---------|------|
-| `line-length` | enabled (max 80) | disabled |
-
-### pymarkdown
-
-| Rule | Default | Here |
-|------|---------|------|
-| MD013 line-length | enabled | disabled |
-| MD026 trailing-punctuation | enabled | disabled — headings like `Setup:` are used intentionally |
-| MD034 no-bare-urls | enabled | disabled — bare URLs appear intentionally in agent instruction files |
-| MD024 no-duplicate-heading | enabled (strict) | `allow_different_nesting: true` — duplicate headings allowed under different parent headings |
+| Linter | Rule | Default | Here |
+|--------|------|---------|------|
+| yamllint | `line-length` | enabled (max 80) | disabled |
+| pymarkdown | MD013 line-length | enabled | disabled |
+| pymarkdown | MD026 trailing-punctuation | enabled | disabled — headings like `Setup:` are intentional |
+| pymarkdown | MD034 no-bare-urls | enabled | disabled — bare URLs appear intentionally in agent instruction files |
+| pymarkdown | MD024 no-duplicate-heading | enabled (strict) | `allow_different_nesting: true` |
 
 ## Usage
 

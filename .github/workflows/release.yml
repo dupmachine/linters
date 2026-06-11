@@ -16,6 +16,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create ${{ github.ref_name }} --generate-notes --title ${{ github.ref_name }}
-          gh release view latest >/dev/null 2>&1 \
-            && gh release edit latest --target ${{ github.sha }} --title latest \
-            || gh release create latest --target ${{ github.sha }} --title latest --notes ""
+          if gh release view latest >/dev/null 2>&1; then
+            gh release edit latest --target ${{ github.sha }} --title latest
+          else
+            gh release create latest --target ${{ github.sha }} --title latest --notes ""
+          fi
